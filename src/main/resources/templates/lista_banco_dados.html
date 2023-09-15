@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="UTF-8">
+	<title> Banco de Dados </title>
+</head>
+
+<body>
+	<center><h3>Informações do Banco de Dados</h3></center> <br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Codigo</th>
+				<th scope="col">Usuário</th>
+				<th scope="col">CPF</th>
+				<th scope="col">nome</th>
+				<th scope="col">Data de Nascimento</th>
+				<th scope="col">Celular</th>
+				<th scope="col">Senha</th>
+				<th scope="col">Nome da disciplina</th>
+				<th scope="col">Turma</th>
+				<th scope="col">Nota 1</th>
+				<th scope="col">Nota 2</th>
+				<th scope="col">Nota 3</th>
+				<th scope="col">media</th>
+				<th scope="col">situacão</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "nba: ${listaNba}">
+				<td th:text="${nba.codigo}"></td>
+				<td th:text="${nba.usuario}"></td>
+				<td th:text="${nba.cpf}"></td>
+				<td th:text="${nba.nome}"></td>
+				<td th:text="${nba.data}"></td>
+				<td th:text="${nba.celular}"></td>
+				<td th:text="${nba.senha}"></td>
+				<td th:text="${nba.nome_disciplina}"></td>
+				<td th:text="${nba.turma}"></td>
+				<td th:text="${nba.nota1}"></td>
+				<td th:text="${nba.nota2}"></td>
+				<td th:text="${nba.nota3}"></td>
+				<td th:text="${nba.media}"></td>
+				<td th:text="${nba.situacao}"></td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+<script src="/js/bootstrap.min.js"> </script>	
+</body>
+
+</html>

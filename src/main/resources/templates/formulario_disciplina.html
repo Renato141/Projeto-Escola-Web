@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="/css/formulario.css" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title> Cadastrar Disciplina </title>
+
+</head>
+
+
+<body>
+	<div id="container">
+	
+		<nav id="linha_azul">
+			<span id="img1">
+				<img src="/img/img_logo.png">
+			</span>
+			
+			<span id="img2">
+				<a href="http://localhost:8080/nba/inicial_coordenador"> <img src="/img/casa.png"> </a>
+			</span>
+			
+			
+		</nav>
+
+
+		<nav id="div_cadastro">
+			<center><h4>Cadastrar Disciplina</h4></center>
+			<form method="post" action="/nba/salvar_disciplina" th:object="${nba}">
+	
+				<input type="hidden" th:field="*{codigo}"/>
+		
+				<br>Nome da Disciplina:  <br><input style="width:340px;" type="text"  th:field="*{nome_disciplina}"/> <br>
+				<br>Turma: <br><input style="width:340px;" type="text" th:field="*{turma}"/> <br><br>
+				
+		 
+				 <a href="http://localhost:8080/nba/formulario_disciplina"><button type="button" class="btn btn-danger"> Cancelar </button></a>
+				 <button type="submit" value="Cadastrar" class="btn btn-success"> Cadastrar </button>
+				 
+				
+			</form>
+		</nav>
+
+	</div>
+	
+	<script src="/js/bootstrap.min.js"> </script>
+	
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mask.js"></script>
+	
+	
+	
+</body>
+
+</html>

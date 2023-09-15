@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="/css/lds_cad.css" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title> Cadastrar Usuário </title>
+
+</head>
+
+
+<body>
+	<div id="container">
+	
+		<nav id="linha_azul">
+			<span id="img1">
+				<img src="/img/img_logo.png">
+			</span>
+			
+			<span id="img2">
+				<a href=""> <img src="/img/casa.png"> </a>
+			</span>
+			
+			
+		</nav>
+
+
+		<nav id="div_cadastro">
+			<center><h4>Cadastre-se</h4></center>
+			<form method="post" action="/nba/salvar_usuario" th:object="${nba}">
+	
+				<input type="hidden" th:field="*{codigo}"/>
+				
+				<br>Nome: <br><input style="width:340px;" type="text" id="lnome" th:field="*{lnome}"/> <br>
+				<br>CPF:  <br><input style="width:340px;" type="text" id="lcpf" th:field="*{lcpf}"/> <br>
+				<br>Data de Nascimento:  <br><input style="width:340px;" type="text" id="ldata" th:field="*{ldata}"/> <br>
+				<br>Telefone:  <br><input style="width:340px;" type="text" id="ltelefone" th:field="*{ltelefone}"/> <br>
+				<br>Email:  <br><input style="width:340px;" type="text" id="lemail" th:field="*{lemail}"/> <br>
+				<br>Endereço:  <br><input style="width:340px;" type="text" id="lendereco" th:field="*{lendereco}"/> <br>
+				<br>Cidade:  <br><input style="width:340px;" type="text" id="lcidade" th:field="*{lcidade}"/> <br>
+				<br>UF:  <br><input style="width:340px;" type="text" id="luf" th:field="*{luf}"/> <br>
+				<br>Senha:  <br><input style="width:340px;" type="password" id="lsenha" th:field="*{lsenha}"/> <br><br>
+				
+		 
+				 <button type="submit" value="Cadastrar" class="btn btn-success"> Cadastrar </button>
+				 <a href="http://localhost:8080/nba/login_lds"> <button type="button" class="btn btn-danger"> Cancelar </button> </a>
+				 
+				 
+				
+			</form>
+		</nav>
+
+	</div>
+	
+	<script src="/js/bootstrap.min.js"> </script>
+	
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mask.js"></script>
+	
+	<script type="text/javascript">
+		$(Document).ready(function(){
+			$('#ldata').mask('00/00/0000');
+			$('#lcpf').mask('000.000.000-00');
+			$('#ltelefone').mask('(00) 00000-0000');
+		});
+	
+	</script>
+	
+	
+	
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+div#container{
+	margin: 0 auto;
+}
+
+nav#linha_azul{
+	height: 100px;
+	background-color: rgb(34, 173, 194);
+	margin: 0 auto;
+
+}
+
+span#img1{
+	padding-left: 60px;
+}
+
+span#img2{
+	padding-left: 990px;
+}
+
+nav#div_cadastro{
+	border: 2px solid rgb(225,225,225);
+    margin: 0 auto;
+    margin-top: 22px;
+    width: 50%;
+    width: 350px;
+    height: 532px;
+
+}

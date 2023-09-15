@@ -1,0 +1,201 @@
+
+Exemplo 1
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="UTF-8">
+	<title> Page Title </title>
+</head>
+
+<body>
+	<center><h3>Galeria de Pratos</h3></center> <br><br>
+	<a href = "http://localhost:8080/nba/pedido"><input type="button" value="Pedido Atual"/></a>
+	<a href ="http://localhost:8080/nba/historico"><input type="button" value="Histórico de pedidos"/></a>
+	<br><br><table class="table">
+		<thead>
+			<tr>
+				<!-- <th scope="col">Codigo</th> -->
+				<th scope="col">Nome do Prato</th>
+				<th scope="col">Preço em Reais</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "nba: ${listaNba}">
+				<!-- <td th:text="${nba.codigo}"></td> -->
+				<td th:text="${nba.nome_prato}"></td>
+				<td th:text="${nba.preco}"></td>
+				<td> <input type="button" value="Selecionar"/> </td>
+				<!-- <td> <a th:href="@{/nba/excluir/{codigo}(codigo = ${nba.codigo})}"> <button type="button" class="btn btn-danger">  Remover </button> </a></td>
+				<td> <a th:href="@{/nba/atualizar/{codigo}(codigo = ${nba.codigo})}"> <button type="button" class="btn btn-primary">Alterar</button> </a> </td>
+				-->
+				
+				
+			</tr> 
+		</tbody>
+	</table>
+	
+<script src="/js/bootstrap.min.js"> </script>	
+</body>
+
+</html>
+
+
+Exemplo 2
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="#" th:action="@{/nba/login}" th:object="${nba}" method="post">
+        <p>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cp" th:field="*{cpf}" />
+        </p>
+        <p>
+            <label for="senha">Senha:</label>
+            <input type="password" th:field="*{senha}" />
+        </p>
+        <p>
+            <button type="submit">Entrar</button>
+        </p>
+    </form>
+    
+    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mask.js"></script>
+	
+	<script type="text/javascript">
+		$(Document).ready(function(){
+			$('#cp').mask('000.000.000-00');
+		});
+	
+	</script>
+    
+</body>
+</html>
+
+Exemplo 3
+<body>
+	<center><h3>Pedido</h3></center> <br><br>
+	<table class="table">
+		<thead>
+			<tr>
+				<!-- <th scope="col">Codigo</th> -->
+				<th scope="col">Nome do Prato</th>
+				<th scope="col">Preço em Reais</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "nba: ${listaNba}">
+				<!-- <td th:text="${nba.codigo}"></td> -->
+				<td th:text="${nba.nome_prato}"></td>
+				<td th:text="${nba.preco}"></td>
+				<td> <a th:href="@{/nba/excluir/{codigo}(codigo = ${nba.codigo})}"> <button type="button" class="btn btn-danger">  Remover </button> </a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<br><h3>Total a Pagar: 31 Reais.</h3><br> <!-- 31 -->
+	<a href = "http://localhost:8080/nba/historico"> <input type="button" value="Confirmar Pedido"/><br></a>
+<script src="/js/bootstrap.min.js"> </script>	
+</body>
+
+
+Exemplo 4
+<!-- @GetMapping("nba/formulario_prato")
+	public ModelAndView formulario() {
+		ModelAndView mv = new ModelAndView("formulario_prato");
+		mv.addObject("nba", new Nba());
+		return mv;
+	}
+	
+	@RequestMapping("/nba/salvar")
+	public ModelAndView salvar(Nba nba) {
+		nbaService.cadastrarNba(nba);
+		
+		ModelAndView mv = new ModelAndView("redirect:/nba/listar_gerente");
+		return mv;
+	}
+	
+
+	
+	
+	@RequestMapping("/nba/salvar_professor")
+	public ModelAndView salvar_professor(Nba nba) {
+		nbaService.cadastrarNba(nba);
+		
+		ModelAndView mv = new ModelAndView("redirect:/nba/listar_gerente");
+		return mv;
+	}
+	
+	
+	@GetMapping("/nba/listar_gerente")
+	public ModelAndView listarNba() {
+		List<Nba> nbas = nbaService.listarNba();
+		
+		ModelAndView mv = new ModelAndView("listagem_gerente");
+		
+		mv.addObject("listaNba", nbas);
+		
+		return mv;
+	}
+	
+	@GetMapping("/nba/pedido")
+	public ModelAndView listar_pedNba() {
+		List<Nba> nbas = nbaService.listarNba();
+		
+		ModelAndView mv = new ModelAndView("pedido");
+		
+		mv.addObject("listaNba", nbas);
+		
+		return mv;
+	}
+	
+	@GetMapping("/nba/historico")
+	public ModelAndView listar_hisNba() {
+		List<Nba> nbas = nbaService.listarNba();
+		
+		ModelAndView mv = new ModelAndView("historico");
+		
+		mv.addObject("listaNba", nbas);
+		
+		return mv;
+	}
+	
+	@GetMapping("/nba/listar_usuario")
+	public ModelAndView listarNba_usu() {
+		List<Nba> nbas = nbaService.listarNba();
+		
+		ModelAndView mv = new ModelAndView("listagem_usuarios");
+		
+		mv.addObject("listaNba", nbas);
+		
+		return mv;
+	}
+	
+	
+	@GetMapping("/nba/excluir/{codigo}")
+	public ModelAndView excluirNba(@PathVariable Long codigo) {
+		nbaService.excluirNba(codigo);
+		
+		ModelAndView mv = new ModelAndView("redirect:/nba/pedido");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/nba/atualizar/{codigo}")
+	public ModelAndView atualizarNba(@PathVariable Long codigo) {
+		Optional<Nba> nba = nbaService.atualizarNba(codigo);
+		
+		ModelAndView mv = new ModelAndView("formulario_prato");
+		mv.addObject("nba", nba);
+		
+		return mv;
+		
+	} -->

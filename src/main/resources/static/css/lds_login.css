@@ -1,0 +1,57 @@
+body{
+	margin: 0 auto;
+	background-color: rgb(34, 173, 194);
+}
+
+/*Configuerações do container centralizado no meio da tela*/
+#container_login{
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 60px;
+	width: 600px;
+	
+}
+
+/*Configurações da imagem logo*/
+img{
+	margin-bottom: 25px;
+	width: 280px;
+	height: 190;
+}
+
+/*Configurações de desing dos campos de digitação*/
+input{
+	width: 400px;
+	height: 40px;
+	border-radius: 20px;
+	margin-bottom: 13px;
+}
+
+/*Configurações de desing do nome CPF e Senha*/
+label{
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bold;
+	color: rgb(7, 79,87);
+}
+
+/*configurações de desing do botão entrar e caixas de entrada*/
+form [type="submit"]{
+	background-color: rgb(87, 229, 106);
+	font-size: 21px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	width: 400px;
+	height: 40px;
+	border-radius: 20px;
+	margin-bottom: 13px;
+}
+form [type="text"]{
+	margin-right: 50px;
+	font-size: 20px;
+}
+form [type="password"]{
+	margin-right: 65px;
+	font-size: 20px;
+}

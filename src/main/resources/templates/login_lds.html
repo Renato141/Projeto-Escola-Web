@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<link rel="stylesheet" type="text/css" href="/css/lds_login.css" />
+	
+    <head>
+        <title>Página do Login</title>
+        <meta charset="utf-8">
+
+    </head>
+    <body>
+        <div id=container_login>
+            <img src="/img/logo_login.png">
+
+            <form action="#" th:action="@{/nba/login}" th:object="${nba}" method="post">
+		        <p>
+		            <label for="cpf">Email:</label>
+		            <input type="text" id="cp" th:field="*{cpf}" />
+		        </p>
+		        <p>
+		            <label for="senha">Senha:</label>
+		            <input type="password" th:field="*{senha}" />
+		        </p>
+		        <p>
+		            <button type="submit">Entrar</button>
+		        </p>
+    		</form>
+    		
+    		<a href="http://localhost:8080/petshop/lds_cad"> Crie sua conta </a>
+            
+            <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+			<script type="text/javascript" src="/js/jquery.mask.js"></script>
+	
+			<script type="text/javascript">
+				$(Document).ready(function(){
+					$('#cp').mask('000.000.000-00');
+				});
+			
+			</script>
+            
+        </div>
+    </body>
+</html>

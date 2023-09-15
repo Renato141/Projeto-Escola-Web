@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="/css/formulario.css" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title> Cadastrar Professor </title>
+
+</head>
+
+
+<body>
+	<div id="container">
+	
+		<nav id="linha_azul">
+			<span id="img1">
+				<img src="/img/img_logo.png">
+			</span>
+			
+			<span id="img2">
+				<a href="http://localhost:8080/nba/inicial_coordenador"> <img src="/img/casa.png"> </a>
+			</span>
+			
+			
+		</nav>
+
+
+		<nav id="div_cadastro">
+			<center><h4>Cadastrar Professor</h4></center>
+			<form method="post" action="/nba/salvar_professor" th:object="${nba}">
+	
+				<input type="hidden" th:field="*{codigo}"/>
+				
+				<br>CPF:  <br><input style="width:340px;" type="text" id="cpf" th:field="*{cpf}"/> <br>
+				<br>Nome: <br><input style="width:340px;" type="text" id="nome" th:field="*{nome}"/> <br>
+				<br>Telefone:  <br><input style="width:340px;" type="text" id="celular" th:field="*{celular}"/> <br>
+				<br>Data de Nascimento:  <br><input style="width:340px;" type="text" id="data" th:field="*{data}"/> <br>
+				<br>Senha:  <br><input style="width:340px;" type="password" id="senha" th:field="*{senha}"/> <br><br>
+				
+		 
+				 <button type="button" class="btn btn-danger" onclick="apagar()"> Cancelar </button>
+				 <button type="submit" value="Cadastrar" class="btn btn-success"> Cadastrar </button>
+				 
+				
+			</form>
+		</nav>
+
+	</div>
+	
+	<script src="/js/bootstrap.min.js"> </script>
+	
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mask.js"></script>
+	<script type="text/javascript" src="/js/form.js"></script>
+	
+	<script type="text/javascript">
+		$(Document).ready(function(){
+			$('#data').mask('00/00/0000');
+			$('#cpf').mask('000.000.000-00');
+			$('#celular').mask('(00) 00000-0000');
+		});
+	
+	</script>
+	
+	
+	
+</body>
+
+</html>
